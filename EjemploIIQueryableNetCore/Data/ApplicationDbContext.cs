@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using EjemploIIQueryableNetCore.Models;
+using EjemploIIQueryableNetCore.Models.Negocio;
 
 namespace EjemploIIQueryableNetCore.Data
 {
@@ -13,7 +14,13 @@ namespace EjemploIIQueryableNetCore.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
+          
         }
+
+        public DbSet<Estudiante> Estudiante { get; set; }
+        public DbSet<Asignatura> Asignatura { get; set; }
+        public DbSet<EstudianteAsignatura> EstudianteAsignatura { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
